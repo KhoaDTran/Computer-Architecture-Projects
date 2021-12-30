@@ -1,0 +1,18 @@
+`timescale 10ps/1fs
+module dec5x32 (WriteRegister, decoded, RegWrite);
+	//Define inputs, outputs and constant
+	input logic [4:0] WriteRegister;
+	input logic RegWrite;
+	output logic [31:0] decoded;
+	
+	// 2 MSB to 2-to-4 decoder to select which 3-to-8 decoder to produce output
+	logic [3:0] select3to8;     
+	dec2x4 decoder2to4 (.encoded(WriteRegister[4:3]), .decoded(select3to8[3:0]), .writeEnabler(RegWrite));
+	
+	// 3 LSB to 3-to-8 decoder to produce decoded output
+	dec3x8 dec3_8_1 (.encoded(WriteRegister[2:0]), .decoded(decoded[7:0]),   .writeEnabler(select3to8[0]));
+	dec3x8 dec3_8_2 (.encoded(WriteRegister[2:0]), .decoded(decoded[15:8]),  .writeEnabler(select3to8[1]));
+	dec3x8 dec3_8_3 (.encoded(WriteRegister[2:0]), .decoded(decoded[23:16]), .writeEnabler(select3to8[2]));
+	dec3x8 dec3_8_4 (.encoded(WriteRegister[2:0]), .decoded(decoded[31:24]), .writeEnabler(select3to8[3]));
+
+endmodule

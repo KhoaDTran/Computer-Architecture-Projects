@@ -1,0 +1,355 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2
+va_and_b
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1635568610
+!i10b 1
+!s100 d><OCD882GV;9[fgVfYIo3
+I[8dPlW;9d43jME^NDN5Lj1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 a_and_b_sv_unit
+S1
+R0
+Z4 w1635558735
+8./a_and_b.sv
+F./a_and_b.sv
+L0 9
+Z5 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z6 !s108 1635568609.000000
+!s107 ./a_and_b.sv|
+!s90 -reportprogress|300|./a_and_b.sv|
+!i113 1
+Z7 tCvgOpt 0
+va_or_b
+R1
+R2
+!i10b 1
+!s100 FjIJJDdBO3VJ4fM:RgGeo0
+IBm6>ZE=:i32f:zI6kZT<A0
+R3
+!s105 a_or_b_sv_unit
+S1
+R0
+Z8 w1635558734
+8./a_or_b.sv
+F./a_or_b.sv
+L0 9
+R5
+r1
+!s85 0
+31
+Z9 !s108 1635568610.000000
+!s107 ./a_or_b.sv|
+!s90 -reportprogress|300|./a_or_b.sv|
+!i113 1
+R7
+va_xor_b
+R1
+R2
+!i10b 1
+!s100 Ano2_O`He:R4H5R[gZ^cf2
+IaWo9_]<abLo^L<7RST9S^3
+R3
+!s105 a_xor_b_sv_unit
+S1
+R0
+R4
+8./a_xor_b.sv
+F./a_xor_b.sv
+L0 9
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./a_xor_b.sv|
+!s90 -reportprogress|300|./a_xor_b.sv|
+!i113 1
+R7
+vadder_64
+R1
+R2
+!i10b 1
+!s100 =U_0b7DMh=4zR7SSKUH`;0
+IWP?cPBLSMd`M9YSgbiLHf0
+R3
+!s105 adder_64_sv_unit
+S1
+R0
+w1635567339
+8./adder_64.sv
+F./adder_64.sv
+L0 15
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./adder_64.sv|
+!s90 -reportprogress|300|./adder_64.sv|
+!i113 1
+R7
+valu
+R1
+R2
+!i10b 1
+!s100 B6jNgm29:he;WKJO0XMK12
+IYneFCmDCko=cieV3[cYnK3
+R3
+!s105 alu_sv_unit
+S1
+R0
+w1635563266
+8./alu.sv
+F./alu.sv
+L0 23
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./alu.sv|
+!s90 -reportprogress|300|./alu.sv|
+!i113 1
+R7
+valustim
+R1
+R2
+!i10b 1
+!s100 FGPT5dX7gP<d5`fI[e]040
+IM>N`NQYWK8:>73dA^P50W1
+R3
+!s105 alustim_sv_unit
+S1
+R0
+w1635567551
+8./alustim.sv
+F./alustim.sv
+L0 20
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./alustim.sv|
+!s90 -reportprogress|300|./alustim.sv|
+!i113 1
+R7
+vcheck_zero
+R1
+R2
+!i10b 1
+!s100 :EM_mk?AG<WXbnzSIRRWo1
+IO0JZom<YdAme]FfFPP7mH0
+R3
+!s105 check_zero_sv_unit
+S1
+R0
+R4
+8./check_zero.sv
+F./check_zero.sv
+L0 6
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./check_zero.sv|
+!s90 -reportprogress|300|./check_zero.sv|
+!i113 1
+R7
+vfulladder
+R1
+R2
+!i10b 1
+!s100 _W[^W8VV[o2V_AkAHeP0K3
+IIcebFDhzEPd@VDmXCoOA12
+R3
+!s105 fulladder_sv_unit
+S1
+R0
+w1635567001
+8./fulladder.sv
+F./fulladder.sv
+Z10 L0 12
+R5
+r1
+!s85 0
+31
+R9
+!s107 ./fulladder.sv|
+!s90 -reportprogress|300|./fulladder.sv|
+!i113 1
+R7
+vmux2_1
+R1
+Z11 !s110 1635568608
+!i10b 1
+!s100 Ec9:2M[MWX<o>S9WziSGS2
+IOPC4dYZSE`0MLolCco>=f2
+R3
+Z12 !s105 mux2_1_sv_unit
+S1
+R0
+R8
+Z13 8./mux2_1.sv
+Z14 F./mux2_1.sv
+R10
+R5
+r1
+!s85 0
+31
+Z15 !s108 1635568608.000000
+Z16 !s107 ./mux2_1.sv|
+Z17 !s90 -reportprogress|300|./mux2_1.sv|
+!i113 1
+R7
+vmux2_1_testbench
+R1
+R11
+!i10b 1
+!s100 b:=Qllk6^mNnzUCXGQWOB0
+IP;46JDAM4bW8]oV:ck92D1
+R3
+R12
+S1
+R0
+R8
+R13
+R14
+L0 26
+R5
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R7
+vmux2_64
+R1
+Z18 !s110 1635568609
+!i10b 1
+!s100 RM`B4GgVJMmO0=BKIzCmJ3
+Ik=?<g9?37`ahUd8?QSng:3
+R3
+!s105 mux2_64_sv_unit
+S1
+R0
+R4
+8./mux2_64.sv
+F./mux2_64.sv
+L0 9
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./mux2_64.sv|
+!s90 -reportprogress|300|./mux2_64.sv|
+!i113 1
+R7
+vmux4_1
+R1
+R18
+!i10b 1
+!s100 2e;ME>?[3;FcX<CMmLMWX0
+I:ij]i1^K>F:n<C=nWJoe^3
+R3
+Z19 !s105 mux4_1_sv_unit
+S1
+R0
+R4
+Z20 8./mux4_1.sv
+Z21 F./mux4_1.sv
+L0 14
+R5
+r1
+!s85 0
+31
+R6
+Z22 !s107 ./mux4_1.sv|
+Z23 !s90 -reportprogress|300|./mux4_1.sv|
+!i113 1
+R7
+vmux4_1_testbench
+R1
+R18
+!i10b 1
+!s100 6L0^2Nk?HTc6b<:_go@zf3
+ID`IWHeeRT5kTLjD@I:PZm3
+R3
+R19
+S1
+R0
+R4
+R20
+R21
+L0 28
+R5
+r1
+!s85 0
+31
+R6
+R22
+R23
+!i113 1
+R7
+vmux8_1
+R1
+R18
+!i10b 1
+!s100 P[:mWDK=NH4`R70X`Ul[L0
+I`57Saf2z3?5jU:n5>fWLP3
+R3
+!s105 mux8_1_sv_unit
+S1
+R0
+w1635564659
+8./mux8_1.sv
+F./mux8_1.sv
+L0 10
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./mux8_1.sv|
+!s90 -reportprogress|300|./mux8_1.sv|
+!i113 1
+R7
+vmux8_64
+R1
+R18
+!i10b 1
+!s100 UPJ=QTmVT`P;gn8O`^F4m0
+IaTbWJXQ?flYiEl:NoEPJS1
+R3
+!s105 mux8_64_sv_unit
+S1
+R0
+R4
+8./mux8_64.sv
+F./mux8_64.sv
+L0 9
+R5
+r1
+!s85 0
+31
+R6
+!s107 ./mux8_64.sv|
+!s90 -reportprogress|300|./mux8_64.sv|
+!i113 1
+R7

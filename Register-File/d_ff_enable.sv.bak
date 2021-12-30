@@ -1,0 +1,16 @@
+module d_ff_enable(q, d, en, clk);
+	input logic clk, en, d;
+	output logic q;
+	
+	logic [1:0] in;
+	logic muxOut;
+	
+	assign in[0] = q;
+	assign in[1] = d;
+	
+	mux2_1 mux1(.out(muxOut), .i0(in[0]), .i1(in[1]), .sel(en)); 
+	
+	d_ff dff1(.q(q), .d(muxOut), .reset(1'b0), .clk);
+endmodule
+
+	

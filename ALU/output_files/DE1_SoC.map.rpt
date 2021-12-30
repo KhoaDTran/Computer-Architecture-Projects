@@ -1,0 +1,651 @@
+Analysis & Synthesis report for DE1_SoC
+Fri Oct 29 21:03:50 2021
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: adder_64:addy_64_01X
+ 11. Parameter Settings for User Entity Instance: mux2_64:mux2_64_B
+ 12. Parameter Settings for User Entity Instance: a_and_b:aandb
+ 13. Parameter Settings for User Entity Instance: a_or_b:aorb
+ 14. Parameter Settings for User Entity Instance: a_xor_b:axorb
+ 15. Port Connectivity Checks: "mux8_64:final_result"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Oct 29 21:03:50 2021       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; DE1_SoC                                     ;
+; Top-level Entity Name           ; alu                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 199                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; alu                ; DE1_SoC            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; State Machine Processing                                                        ; User-Encoded       ; Auto               ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; a_and_b.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_and_b.sv    ;         ;
+; mux8_64.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_64.sv    ;         ;
+; a_xor_b.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_xor_b.sv    ;         ;
+; alu.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv        ;         ;
+; fulladder.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/fulladder.sv  ;         ;
+; adder_64.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/adder_64.sv   ;         ;
+; mux2_64.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_64.sv    ;         ;
+; mux2_1.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_1.sv     ;         ;
+; a_or_b.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_or_b.sv     ;         ;
+; check_zero.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/check_zero.sv ;         ;
+; mux4_1.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux4_1.sv     ;         ;
+; mux8_1.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_1.sv     ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 163            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 237            ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 89             ;
+;     -- 5 input functions                    ; 24             ;
+;     -- 4 input functions                    ; 12             ;
+;     -- <=3 input functions                  ; 112            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 199            ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; cntrl[0]~input ;
+; Maximum fan-out                             ; 138            ;
+; Total fan-out                               ; 1235           ;
+; Average fan-out                             ; 1.94           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
+; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                   ; Entity Name ; Library Name ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
+; |alu                                             ; 237 (0)             ; 0 (0)                     ; 0                 ; 0          ; 199  ; 0            ; |alu                                                                  ; alu         ; work         ;
+;    |adder_64:addy_64_01X|                        ; 93 (1)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X                                             ; adder_64    ; work         ;
+;       |fulladder:subfulladders[10].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[10].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[11].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[11].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[12].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[12].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[13].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[13].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[14].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[14].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[15].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[15].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[16].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[16].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[17].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[17].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[19].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[19].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[1].subfulladder|  ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[1].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[20].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[20].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[21].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[21].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[22].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[22].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[23].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[23].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[24].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[24].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[25].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[25].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[26].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[26].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[27].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[27].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[29].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[29].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[2].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[2].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[30].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[30].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[31].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[31].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[32].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[32].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[33].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[33].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[34].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[34].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[35].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[35].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[36].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[36].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[37].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[37].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[38].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[38].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[39].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[39].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[3].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[3].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[40].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[40].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[41].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[41].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[42].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[42].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[44].subfulladder| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[44].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[45].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[45].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[46].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[46].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[48].subfulladder| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[48].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[49].subfulladder| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[49].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[4].subfulladder|  ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[4].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[50].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[50].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[51].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[51].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[53].subfulladder| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[53].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[54].subfulladder| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[54].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[55].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[55].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[56].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[56].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[58].subfulladder| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[58].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[59].subfulladder| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[59].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[5].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[5].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[61].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[61].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[63].subfulladder| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[63].subfulladder    ; fulladder   ; work         ;
+;       |fulladder:subfulladders[6].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[6].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[7].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[7].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[8].subfulladder|  ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[8].subfulladder     ; fulladder   ; work         ;
+;       |fulladder:subfulladders[9].subfulladder|  ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|adder_64:addy_64_01X|fulladder:subfulladders[9].subfulladder     ; fulladder   ; work         ;
+;    |check_zero:checkzero|                        ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|check_zero:checkzero                                             ; check_zero  ; work         ;
+;    |mux2_64:mux2_64_B|                           ; 51 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B                                                ; mux2_64     ; work         ;
+;       |mux2_1:sub2muxes[10].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[10].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[11].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[11].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[12].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[12].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[13].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[13].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[15].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[15].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[16].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[16].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[17].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[17].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[18].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[18].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[19].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[19].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[20].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[20].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[21].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[21].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[22].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[22].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[23].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[23].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[25].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[25].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[26].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[26].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[27].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[27].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[28].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[28].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[2].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[2].mux2                       ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[30].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[30].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[31].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[31].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[32].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[32].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[33].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[33].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[35].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[35].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[36].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[36].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[37].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[37].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[38].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[38].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[3].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[3].mux2                       ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[40].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[40].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[41].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[41].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[42].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[42].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[43].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[43].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[45].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[45].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[46].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[46].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[47].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[47].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[48].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[48].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[49].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[49].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[50].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[50].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[51].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[51].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[52].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[52].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[53].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[53].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[54].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[54].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[55].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[55].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[56].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[56].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[57].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[57].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[58].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[58].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[5].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[5].mux2                       ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[60].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[60].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[61].mux2|                ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[61].mux2                      ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[6].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[6].mux2                       ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[7].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[7].mux2                       ; mux2_1      ; work         ;
+;       |mux2_1:sub2muxes[8].mux2|                 ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux2_64:mux2_64_B|mux2_1:sub2muxes[8].mux2                       ; mux2_1      ; work         ;
+;    |mux8_64:final_result|                        ; 76 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result                                             ; mux8_64     ; work         ;
+;       |mux8_1:sub8muxes[0].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[0].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[0].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[10].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[10].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[10].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[11].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[11].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[11].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[12].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[12].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[12].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[13].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[13].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[13].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[14].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[14].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[14].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[15].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[15].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[15].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[16].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[16].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[16].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[17].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[17].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[17].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[18].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[18].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[18].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[19].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[19].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[19].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[1].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[1].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[1].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[20].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[20].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[20].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[21].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[21].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[21].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[22].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[22].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[22].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[23].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[23].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[23].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[24].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[24].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[24].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[25].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[25].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[25].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[26].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[26].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[26].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[27].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[27].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[27].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[28].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[28].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[28].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[29].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[29].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[29].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[2].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[2].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[2].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[30].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[30].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[30].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[31].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[31].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[31].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[32].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[32].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[32].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[33].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[33].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[33].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[34].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[34].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[34].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[35].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[35].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[35].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[36].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[36].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[36].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[37].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[37].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[37].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[38].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[38].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[38].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[39].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[39].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[39].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[3].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[3].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[3].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[40].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[40].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[40].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[41].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[41].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[41].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[42].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[42].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[42].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[43].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[43].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[43].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[44].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[44].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[44].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[45].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[45].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[45].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[46].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[46].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[46].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[47].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[47].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[47].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[48].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[48].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[48].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[49].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[49].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[49].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[4].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[4].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[4].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[50].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[50].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[50].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[51].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[51].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[51].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[52].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[52].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[52].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[53].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[53].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[53].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[54].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[54].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[54].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[55].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[55].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[55].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[56].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[56].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[56].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[57].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[57].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[57].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[58].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[58].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[58].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[59].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[59].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[59].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[5].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[5].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[5].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[60].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[60].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[60].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[61].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[61].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[61].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[62].mux8|                ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[62].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[62].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[63].mux8|                ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[63].mux8                   ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[63].mux8|mux2_1:mux2_final ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[6].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[6].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[6].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[7].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[7].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[7].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[8].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[8].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[8].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
+;       |mux8_1:sub8muxes[9].mux8|                 ; 1 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[9].mux8                    ; mux8_1      ; work         ;
+;          |mux2_1:mux2_final|                     ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |alu|mux8_64:final_result|mux8_1:sub8muxes[9].mux8|mux2_1:mux2_final  ; mux2_1      ; work         ;
++--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
+; 5:1                ; 64 bits   ; 192 LEs       ; 192 LEs              ; 0 LEs                  ; No         ; |alu|mux8_64:final_result|mux8_1:sub8muxes[0].mux8|mux2_1:mux2_final|out_method ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: adder_64:addy_64_01X ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; DATA_SIZE      ; 64    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux2_64:mux2_64_B ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; INPUTS         ; 2     ; Signed Integer                        ;
+; SELECTBITS     ; 1     ; Signed Integer                        ;
+; SIZE           ; 64    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: a_and_b:aandb ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; DATA_SIZE      ; 64    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: a_or_b:aorb ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; DATA_SIZE      ; 64    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: a_xor_b:axorb ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; DATA_SIZE      ; 64    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux8_64:final_result" ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; all_results[7] ; Input ; Info     ; Stuck at GND ;
+; all_results[1] ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 238                         ;
+;     normal            ; 238                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 70                          ;
+;         3 data inputs ; 42                          ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 24                          ;
+;         6 data inputs ; 89                          ;
+; boundary_port         ; 199                         ;
+;                       ;                             ;
+; Max LUT depth         ; 28.00                       ;
+; Average LUT depth     ; 19.53                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Fri Oct 29 21:03:28 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC -c DE1_SoC
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file a_and_b.sv
+    Info (12023): Found entity 1: a_and_b File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_and_b.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file mux8_64.sv
+    Info (12023): Found entity 1: mux8_64 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_64.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file a_xor_b.sv
+    Info (12023): Found entity 1: a_xor_b File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_xor_b.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file alustim.sv
+    Info (12023): Found entity 1: alustim File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alustim.sv Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
+    Info (12023): Found entity 1: alu File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file fulladder.sv
+    Info (12023): Found entity 1: fulladder File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/fulladder.sv Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file adder_64.sv
+    Info (12023): Found entity 1: adder_64 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/adder_64.sv Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file mux2_64.sv
+    Info (12023): Found entity 1: mux2_64 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_64.sv Line: 9
+Info (12021): Found 2 design units, including 2 entities, in source file mux2_1.sv
+    Info (12023): Found entity 1: mux2_1 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_1.sv Line: 12
+    Info (12023): Found entity 2: mux2_1_testbench File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_1.sv Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file a_or_b.sv
+    Info (12023): Found entity 1: a_or_b File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/a_or_b.sv Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file check_zero.sv
+    Info (12023): Found entity 1: check_zero File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/check_zero.sv Line: 6
+Info (12021): Found 2 design units, including 2 entities, in source file mux4_1.sv
+    Info (12023): Found entity 1: mux4_1 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux4_1.sv Line: 14
+    Info (12023): Found entity 2: mux4_1_testbench File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux4_1.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file mux8_1.sv
+    Info (12023): Found entity 1: mux8_1 File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_1.sv Line: 10
+Info (12127): Elaborating entity "alu" for the top level hierarchy
+Warning (10030): Net "all_results[7]" at alu.sv(34) has no driver or initial value, using a default initial value '0' File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 34
+Warning (10030): Net "all_results[1]" at alu.sv(34) has no driver or initial value, using a default initial value '0' File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 34
+Info (12128): Elaborating entity "adder_64" for hierarchy "adder_64:addy_64_01X" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 38
+Info (12128): Elaborating entity "fulladder" for hierarchy "adder_64:addy_64_01X|fulladder:subfulladders[0].subfulladder" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/adder_64.sv Line: 37
+Info (12128): Elaborating entity "mux2_64" for hierarchy "mux2_64:mux2_64_B" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 39
+Info (12128): Elaborating entity "mux2_1" for hierarchy "mux2_64:mux2_64_B|mux2_1:sub2muxes[0].mux2" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux2_64.sv Line: 33
+Info (12128): Elaborating entity "a_and_b" for hierarchy "a_and_b:aandb" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 41
+Info (12128): Elaborating entity "a_or_b" for hierarchy "a_or_b:aorb" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 42
+Info (12128): Elaborating entity "a_xor_b" for hierarchy "a_xor_b:axorb" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 43
+Info (12128): Elaborating entity "check_zero" for hierarchy "check_zero:checkzero" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 44
+Info (12128): Elaborating entity "mux8_64" for hierarchy "mux8_64:final_result" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/alu.sv Line: 46
+Info (12128): Elaborating entity "mux8_1" for hierarchy "mux8_64:final_result|mux8_1:sub8muxes[0].mux8" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_64.sv Line: 32
+Info (12128): Elaborating entity "mux4_1" for hierarchy "mux8_64:final_result|mux8_1:sub8muxes[0].mux8|mux4_1:mux4A" File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 2/EE 469 Lab 2/mux8_1.sv Line: 21
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 436 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 131 input pins
+    Info (21059): Implemented 68 output pins
+    Info (21061): Implemented 237 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Fri Oct 29 21:03:50 2021
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:49
+
+

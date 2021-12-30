@@ -1,0 +1,48 @@
+`timescale 1ns/10ps
+module instruction (instruction, UncondBr, BrTaken, clk, reset);
+	input logic BrTaken, UncondBr, clk, reset;
+	output logic [31:0] instruction;
+	
+	logic [63:0] currentPC;
+	
+	// Fetch instruction from current PC
+	instructmem fecthInstruction(.address(currentPC), .instruction, .clk);
+	
+	logic [63:0] nextPC;
+	// Add 4 to current instructrion
+	fullAdder_64 addressAdd (.A(currentPC), .B(64'd4), .result(nextPC));
+	
+	logic [63:0] condAddrExtended, brAddrExtended;
+	// Sign Extend condAddr19 and brAddr26
+	signExtend #(.WIDTH(19)) condExtend (.in(instruction[23:5]), .out(condAddrExtended));
+	signExtend  #(.WIDTH(26)) brExtend (.in(instruction[25:0]), .out(brAddrExtended));
+	
+	// Put results after sign extension into 2:1 Mux with control signal UncondBr
+	logic [63:0] UncondMuxOut;
+	genvar i;
+	generate 
+		for (i = 0; i < 64; i++) begin: eachUncondMux
+			mux_2to1 firstMux (.sel(UncondBr), .i0(condAddrExtended[i]), .i1(brAddrExtended[i]), .out(UncondMuxOut[i]));
+		end
+	endgenerate
+	
+	logic [63:0] shifterOut;
+	
+	// Shift result from UncondMux
+	shifter shift (.value(UncondMuxOut), .direction(1'b0), .distance(6'b000010), .result(shifterOut));
+	logic [63:0] PCplusBranch;
+	// Add the shifted result with current PC
+	fullAdder_64 addAddress (.A(currentPC), .B(shifterOut), .result(PCplusBranch));
+	
+	// Mux to choose whether to branch or not
+	logic [63:0] BrTakenOut;
+	generate 
+		for (i = 0; i < 64; i++) begin: eachBrTakenMux
+			mux_2to1 secondMux (.sel(BrTaken), .i0(nextPC[i]), .i1(PCplusBranch[i]), .out(BrTakenOut[i]));
+		end
+	endgenerate
+	
+	// Store next PC to Program COunter
+	pc pcUnit (.in(BrTakenOut), .out(currentPC), .clk, .reset);
+		
+endmodule

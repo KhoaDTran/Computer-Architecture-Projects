@@ -1,0 +1,23 @@
+module dec2x4(in, enable, out);
+	input logic [1:0] in;
+	output logic [3:0] out;
+	input logic enable;
+	
+	logic out1, out2, out3, out4;
+	logic not1, not2;
+	
+	not not1_method(not1, in[0]);
+	not not2_method(not2, in[1]);
+	
+	and and1(out0, not1, not2);
+	and and2(out1, not2, in[0]);
+	and and3(out2, in[1], not0);
+	and and4(out3, in[0], in[1]);
+	
+	and out_method(out[0], out0, enable);
+	and out_method1(out[1], out1, enable);
+	and out_method2(out[2], out2, enable);
+	and out_method3(out[3], out3, enable);
+endmodule
+
+	

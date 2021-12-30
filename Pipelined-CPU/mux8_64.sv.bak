@@ -1,0 +1,1 @@
+module mux6_1(cntrl, result);

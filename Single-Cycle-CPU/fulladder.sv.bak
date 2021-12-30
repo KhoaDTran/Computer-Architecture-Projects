@@ -1,0 +1,13 @@
+module fullAdder(a, b, ci, out, co);
+	input logic a, b;
+	output logic out, carry_out;
+	
+	logic abci, ab, aci, bci, abci;
+	
+	and abci_and(abci, a, b, ci);
+	and ab_and(ab, a, b);
+	and aci_and(aci, a, ci);
+	and bci_and(bci, b, ci);
+	and abci_and(abci, a, b, ci);
+	
+endmodule 

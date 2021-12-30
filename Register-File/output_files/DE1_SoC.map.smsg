@@ -1,0 +1,2 @@
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (10030): Net "not0" at dec2x4.sv(15) has no driver or initial value, using a default initial value '0' File: C:/Users/tynou/Dropbox/College/Senior/Fall/EE 469/Labs/Lab 1/Lab1_files/dec2x4.sv Line: 15

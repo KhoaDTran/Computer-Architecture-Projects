@@ -1,0 +1,14 @@
+module a_or_b(a, b, out);
+	parameter DATA_SIZE = 64;
+	
+	input logic [DATA_SIZE-1:0] a;
+	input logic [DATA_SIZE-1:0] b;
+	
+	output logic [DATA_sIZE-1:0] out;
+	
+	genvar i;
+	generate
+		for (i=0; i<DATA_SIZE; i++) 
+			or a_or_b(out[i], a[i], b[i]);
+	endgenerate 
+endmodule 

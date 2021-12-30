@@ -1,0 +1,40 @@
+module forwardingUnit(ExMem_RegWrite, MemWr_RegWrite, EXflag, oldBR, ALUSrc, ExMem_Rd, MemWr_Rd, Rn, Rm, forwardA, forwardB, forwardOut, forwardFlag);
+	input logic ExMem_RegWrite, MemWr_RegWrite, EXflag, oldBR, ALUSrc;
+	input logic [4:0] ExMem_Rd, MemWr_Rd, Rn, Rm;
+	output logic [1:0] forwardA, forwardB, forwardOut;
+	output logic forwardFlag;
+	
+	always_comb begin 
+		
+		//forward output data control
+		if ((ExMem_RegWrite) & (ExMem_Rd == Rm) & (ExMem_Rd != 5'd31))
+			forwardOut = 2'b10;
+		else if ((MemWr_RegWrite) & (MemWr_Rd == Rm) & (MemWr_Rd != 5'd31)) 
+			forwardOut = 2'b01;
+		else
+			forwardOut = 2'b00;	
+		
+		//exec hazard 
+		if ((ExMem_RegWrite) & (ExMem_Rd == Rn) & (ExMem_Rd != 5'd31))
+			forwardA = 2'b10;
+		else if ((MemWr_RegWrite) & (MemWr_Rd == Rn) & (MemWr_Rd != 5'd31))
+			forwardA = 2'b01;
+		else
+			forwardA = 2'b00;	
+		
+		//exec hazard
+		if ((ExMem_RegWrite) & (!ALUSrc) & (ExMem_Rd == Rm) & (ExMem_Rd != 5'd31))
+			forwardB = 2'b10;
+		else if ((MemWr_RegWrite) & (!ALUSrc) & (MemWr_Rd == Rm) & (MemWr_Rd != 5'd31))
+			forwardB = 2'b01;
+		else
+			forwardB = 2'b00;	
+		
+		//forward flag
+		if (oldBR & EXflag)
+			forwardFlag = 1;
+		else
+			forwardFlag = 0;
+	end
+
+endmodule
